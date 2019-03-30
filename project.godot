@@ -16,7 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Skiing"
+run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=920
+window/size/height=620
+window/size/resizable=false
 
 [rendering]
 
