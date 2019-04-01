@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export(float) var max_speed
-export(float) var speed_acceleration
+export(float) var max_move_speed
+export(float) var move_acceleration
 export(float) var forward_acceleration
 export(float) var down_speed
 
@@ -43,7 +43,7 @@ func move_player(delta):
 		slow_down()
 	
 	if velocity.y < -400:
-		velocity.y -= forward_acceleration * 0.01 * delta
+		velocity.y -= forward_acceleration * delta
 	else:
 		velocity.y -= 2
 	
@@ -57,20 +57,20 @@ func hit_walls():
 		position.x = 920-32
 		
 func on_move_left():
-	velocity.x -= speed_acceleration
-	velocity.x = max(velocity.x, -max_speed)
+	velocity.x -= move_acceleration
+	velocity.x = max(velocity.x, -max_move_speed)
 	pass
 	
 func on_move_right():
-	velocity.x += speed_acceleration
-	velocity.x = min(velocity.x, +max_speed)
+	velocity.x += move_acceleration
+	velocity.x = min(velocity.x, +max_move_speed)
 	pass
 	
 func slow_down():
 	velocity.x *= 0.9
 	
 func set_height(delta):
-	height -= down_speed * delta * abs(velocity.y * 0.001)
+	height -= down_speed * delta * abs(velocity.y * 0.005)
 	update_height_label()
 	
 func update_height_label():
