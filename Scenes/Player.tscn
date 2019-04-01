@@ -4,28 +4,25 @@
 [ext_resource path="res://Textures/Skimen.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Snow.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 64 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1490, 60 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 max_speed = 500.0
 speed_acceleration = 100.0
-forward_acceleration = 1.0
+forward_acceleration = 100.0
+down_speed = 5.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -200 )
 current = true
+limit_left = 920
+limit_right = 920
 drag_margin_v_enabled = false
 drag_margin_left = 1.0
 drag_margin_right = 1.0
@@ -39,4 +36,16 @@ motion_mirroring = Vector2( 920, 1240 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 centered = false
+
+[node name="BottomOfSceen" type="Area2D" parent="."]
+position = Vector2( 0, 394 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomOfSceen"]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -15, -37, 13, -37, 14, 57, 9, 64, -9, 64, -14, 58 )
 
