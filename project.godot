@@ -24,6 +24,7 @@ config/icon="res://Textures/icon.png"
 window/size/width=920
 window/size/height=620
 window/size/resizable=false
+window/energy_saving/keep_screen_on=false
 
 [input]
 

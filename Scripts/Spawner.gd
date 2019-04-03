@@ -17,6 +17,5 @@ func _on_NextObstacleTimer_timeout():
 	var obstacle = types[obs_type].instance()
 	add_child(obstacle)
 		
-	obstacle.position.y = player.position.y - randi() % 500
-	obstacle.set_random_x_position()
+	obstacle.set_random_position()
 	
