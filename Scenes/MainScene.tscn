@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Obstacles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=5]
 
@@ -13,9 +13,10 @@ script = ExtResource( 1 )
 position = Vector2( 461.373, 526.99 )
 z_index = 10
 
-[node name="Obstacles" parent="." instance=ExtResource( 3 )]
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 213.487, 94.3113 )
 
