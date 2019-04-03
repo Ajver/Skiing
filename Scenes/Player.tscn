@@ -11,7 +11,8 @@ extents = Vector2( 1490, 60 )
 script = ExtResource( 1 )
 max_move_speed = 500.0
 move_acceleration = 100.0
-forward_acceleration = 5.0
+forward_acceleration = 3.0
+max_forward_speed = 600.0
 down_speed = 5.0
 
 [node name="Sprite" type="Sprite" parent="."]
