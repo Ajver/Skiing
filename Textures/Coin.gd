@@ -7,12 +7,14 @@ func _ready():
 
 func _process(delta):
 	if is_below_screen():
+		$Sprite.visible = true
 		set_random_position()
-
+			
 func _on_Coin_body_entered(body):
 	if body.name == "Player":
+		$PickedParticles.emitting = true;
+		$Sprite.visible = false
 		body.on_coin()
-		set_random_position()
 		
 func set_random_position():
 	position.y = player.position.y - 600 - (randi() % 300)

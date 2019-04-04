@@ -67,12 +67,10 @@ func hit_walls():
 func on_move_left():
 	velocity.x -= move_acceleration
 	velocity.x = max(velocity.x, -max_move_speed)
-	pass
 	
 func on_move_right():
 	velocity.x += move_acceleration
 	velocity.x = min(velocity.x, +max_move_speed)
-	pass
 	
 func slow_down():
 	velocity.x *= 0.9

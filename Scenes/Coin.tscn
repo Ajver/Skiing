@@ -1,10 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Textures/Coin.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Coin0.png" type="Texture" id=2]
+[ext_resource path="res://Textures/coinPick.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.5811
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00428528, 1 ), 0.0, -0.755351, 0, 0, Vector2( 1, 0.0732 ), -4.44148, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 16, 16, 1 )
+flag_disable_z = true
+spread = 90.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 206.9
+initial_velocity_random = 0.23
+angular_velocity = 463.45
+angular_velocity_random = 0.28
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -100.0
+damping = 100.0
+angle = 45.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
+scale_curve = SubResource( 4 )
+color = Color( 1, 0.964706, 0, 1 )
 
 [node name="Coin" type="Area2D"]
 script = ExtResource( 1 )
@@ -14,6 +42,18 @@ scale = Vector2( 1.95116, 1.95116 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
+
+[node name="PickedParticles" type="Particles2D" parent="."]
+position = Vector2( 0.922073, -20.2855 )
+rotation = -1.5708
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
