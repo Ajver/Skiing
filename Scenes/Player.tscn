@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Skimen.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Snow.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/SnowParticles.tscn" type="PackedScene" id=4]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 49 )
+
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 0
 script = ExtResource( 1 )
 max_move_speed = 500.0
 move_acceleration = 100.0
@@ -37,8 +41,9 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -15, -37, 13, -37, 14, 57, 9, 64, -9, 64, -14, 58 )
+[node name="CollisionPolygon" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 11 )
+shape = SubResource( 1 )
 
 [node name="SnowParticlesLeft" parent="." instance=ExtResource( 4 )]
 

@@ -43,6 +43,10 @@ ui_right={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_3="Pickups"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

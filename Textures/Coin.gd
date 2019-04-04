@@ -12,11 +12,10 @@ func _process(delta):
 		set_random_position()
 			
 func _on_Coin_body_entered(body):
-	if body.name == "Player":
-		$PickedParticles.emitting = true
-		$PickupSound.playing = true
-		$Sprite.visible = false
-		body.on_coin()
+	$PickedParticles.emitting = true
+	$PickupSound.playing = true
+	$Sprite.visible = false
+	body.on_coin()
 		
 func set_random_position():
 	position.y = player.position.y - 600 - (randi() % 300)
