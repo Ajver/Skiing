@@ -1,6 +1,7 @@
 extends Area2D
 
-onready var player = get_parent().get_parent().get_node("Player")
+onready var world_node = get_parent().get_parent().get_parent()
+onready var player = world_node.get_node("Player")
 	
 func _ready():
 	set_random_position()
@@ -11,7 +12,7 @@ func _process(delta):
 
 func _on_Obstacle_body_entered(body):
 	if body.name == "Player":
-		get_parent().get_parent().game_over()
+		world_node.game_over()
 
 func is_below_screen():
 	return position.y > player.position.y + 300

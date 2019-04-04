@@ -61,6 +61,12 @@ func move_player(delta):
 	hit_walls()
 	
 func hit_walls():
+	if Input.is_key_pressed(KEY_CONTROL):
+		$CollisionPolygon.disabled = true
+		return
+	else:
+		$CollisionPolygon.disabled = false
+		
 	var screen_size = get_viewport_rect().size
 	position.x = clamp(position.x, 32, screen_size.x-32)
 		

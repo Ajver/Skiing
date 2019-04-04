@@ -7,11 +7,13 @@
 script = ExtResource( 1 )
 timer_step = 2.0
 
-[node name="Rock" parent="." instance=ExtResource( 2 )]
-position = Vector2( 459.665, -118.017 )
-
 [node name="NextObstacleTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Rock" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 459.665, -118.017 )
 
 [connection signal="timeout" from="NextObstacleTimer" to="." method="_on_NextObstacleTimer_timeout"]

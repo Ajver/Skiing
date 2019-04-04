@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Skimen.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Snow.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/SnowParticles.tscn" type="PackedScene" id=4]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1490, 60 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -30,6 +27,7 @@ drag_margin_left = 1.0
 drag_margin_right = 1.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 920, 1240 )
@@ -39,16 +37,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="BottomOfSceen" type="Area2D" parent="."]
-position = Vector2( 0, 394 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomOfSceen"]
-shape = SubResource( 1 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -15, -37, 13, -37, 14, 57, 9, 64, -9, 64, -14, 58 )
 
 [node name="SnowParticlesLeft" parent="." instance=ExtResource( 4 )]

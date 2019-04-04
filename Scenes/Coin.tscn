@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Textures/Coin.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Coin0.png" type="Texture" id=2]
 [ext_resource path="res://Textures/coinPick.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/Pickup_Coin.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.5811
@@ -55,5 +56,9 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( 2 )
 texture = ExtResource( 3 )
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -11.61
 
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]

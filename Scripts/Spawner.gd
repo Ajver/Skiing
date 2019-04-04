@@ -15,7 +15,7 @@ func _on_NextObstacleTimer_timeout():
 	
 	var obs_type = randi() % types.size()
 	var obstacle = types[obs_type].instance()
-	add_child(obstacle)
+	$YSort.add_child(obstacle)
 		
 	obstacle.set_random_position()
 	
