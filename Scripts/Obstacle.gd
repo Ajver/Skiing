@@ -1,9 +1,10 @@
 extends Area2D
 
-onready var world_node = get_parent().get_parent().get_parent()
+onready var world_node = get_parent().get_parent()
 onready var player = world_node.get_node("Player")
 	
 func _ready():
+	randomize()
 	set_random_position()
 	
 func _process(delta):

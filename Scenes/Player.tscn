@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Skimen.png" type="Texture" id=2]
-[ext_resource path="res://Textures/Snow.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/SnowParticles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://Textures/Snow.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/SnowParticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 49 )
@@ -24,11 +25,13 @@ texture = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -200 )
 current = true
-limit_left = 920
-limit_right = 920
+drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 drag_margin_left = 1.0
 drag_margin_right = 1.0
+script = ExtResource( 3 )
+shake_power = 10.0
+shake_time = 0.2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 editor/display_folded = true
@@ -38,15 +41,15 @@ motion_mirroring = Vector2( 920, 1240 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2( 2, 2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="CollisionPolygon" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 11 )
 shape = SubResource( 1 )
 
-[node name="SnowParticlesLeft" parent="." instance=ExtResource( 4 )]
+[node name="SnowParticlesLeft" parent="." instance=ExtResource( 5 )]
 
-[node name="SnowParticlesRight" parent="." instance=ExtResource( 4 )]
+[node name="SnowParticlesRight" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, 65 )
 
